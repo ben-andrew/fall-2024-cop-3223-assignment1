@@ -31,16 +31,11 @@ double askForUserInput(){
 
 double calculateDistance(){
 
-    double x1;
-    double x2;
-    double y1;
-    double y2;
-
     printf("Please, enter numbers for x1, x2, y1, and y2, in that order.\n");
-    x1 = askForUserInput();
-    x2 = askForUserInput();
-    y1 = askForUserInput();
-    y2 = askForUserInput();
+    double x1 = askForUserInput();
+    double x2 = askForUserInput();
+    double y1 = askForUserInput();
+    double y2 = askForUserInput();
     printf("\nThese are the points entered: \nPoint #1 entered: x1 = %.2lf; y1 = %.2lf \nPoint #2 entered: x2 = %.2lf; y2 = %.2lf \n",x1, y1, x2, y2);
 
     double x2_minus_x1 = x2 - x1;
@@ -58,16 +53,27 @@ double calculateDistance(){
 
 double calculatePerimeter(){
 
-    calculateDistance();
+    double city_diameter = calculateDistance();
+    double city_radius = city_diameter / 2;
+    double city_circumference = 2 * PI * city_radius;
+
+    printf("\nThe perimeter of the city encompassed by your request is: %.2lf\n", city_circumference);
 
     return 0;
-}
 
-/*double calculateArea(){
+} // calculatePerimeter
+
+double calculateArea(){
+
+    double city_diameter = calculateDistance();
+    double city_radius = city_diameter / 2;
+    double city_area = PI * pow(city_radius, 2);
+
     return 0;
-}
 
-double calculateWidth(){
+} // calculateArea
+
+/*double calculateWidth(){
     return 0;
 }
 

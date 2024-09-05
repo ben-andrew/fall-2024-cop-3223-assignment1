@@ -28,6 +28,28 @@ double askForUserInput(){
     return point;
 } // askForUserInput
 
+double calculateWidth(){
+
+    double city_width = calculateDistance();
+
+    printf("\nThe width of the city encompassed by your request is: %.2lf\n", city_width);
+
+    double difficulty = 1.0;
+
+    return difficulty;
+} // calculateWidth
+
+double calculateHeight(){
+
+    double city_height = calculateDistance();
+
+    printf("\nThe height of the city encompassed by your request is: %.2lf\n", city_height);
+
+    double difficulty = 1.0;
+
+    return difficulty;
+} // calculateHeight
+
 double calculateDistance(){
 
     printf("Please, enter numbers for x1, x2, y1, and y2, in that order.\n");
@@ -57,7 +79,9 @@ double calculatePerimeter(){
 
     printf("\nThe perimeter of the city encompassed by your request is: %.2lf\n", city_circumference);
 
-    return 0;
+    double difficulty = 1.0;
+
+    return difficulty;
 } // calculatePerimeter
 
 double calculateArea(){
@@ -68,26 +92,10 @@ double calculateArea(){
 
     printf("\nThe area of the city encompassed by your request is: %.2lf\n", city_area);
 
-    return 0;
+    double difficulty = 1.0;
+
+    return difficulty;
 } // calculateArea
-
-double calculateWidth(){
-
-    double city_width = calculateDistance();
-
-    printf("\nThe width of the city encompassed by your request is: %.2lf\n", city_width);
-
-    return 0;
-} // calculateWidth
-
-double calculateHeight(){
-
-    double city_height = calculateDistance();
-
-    printf("\nThe height of the city encompassed by your request is: %.2lf\n", city_height);
-
-    return 0;
-} // calculateHeight
 
 int main(int argc, char **argv){
 

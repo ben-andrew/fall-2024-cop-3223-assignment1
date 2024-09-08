@@ -37,7 +37,7 @@ double askForUserInput()
 
     // ask for a point
 
-    printf("Please, enter a number: ");
+    printf("\nPlease, enter a number: ");
     scanf("%lf", &point);
     
     return point;
@@ -57,27 +57,38 @@ double askForUserInput()
 
 double calculateDistance()
 {
+    static double distance = -1;    // stores static double for distance calculation
+
     // asks for four numbers to define two points
+    
+    if (distance == -1) // so that calculateDistance() only gets calculated once
+    {
+        // prompt for user input
 
-    printf("Please, enter numbers for x1, x2, y1, and y2, in that order.\n");
-    double x1 = askForUserInput();
-    double x2 = askForUserInput();
-    double y1 = askForUserInput();
-    double y2 = askForUserInput();
-    printf("\nThese are the points entered: \nPoint #1 entered: x1 = %.2lf; y1 = %.2lf \nPoint #2 entered: x2 = %.2lf; y2 = %.2lf \n",x1, y1, x2, y2);
+        printf("Please, enter numbers for x1, x2, y1, and y2, in that order.\n");
 
-    // calculate the distance between the two points
+        double x1 = askForUserInput();    // holds user input for x1
+        double x2 = askForUserInput();    // holds user input for x2
+        double y1 = askForUserInput();    // holds user input for y1
+        double y2 = askForUserInput();    // holds user input for y2
 
-    double x_minus = x2 - x1;             // calculates x2 minus x1
-    double y_minus = y2 - y1;             // calculates y2 minus y1
-    double x_pow2 = pow(x_minus, 2.0);    // calculates x_minus squared
-    double y_pow2 = pow(y_minus, 2.0);    // calculates y_minus squared
-    double x_plus_y = x_pow2 + y_pow2;    // calculates the sum of x_pow2 and y_pow2
-    double distance = sqrt(x_plus_y);     // calculates the square root of x_plus_y
+        // prints user input into organized points
 
-    // prints the calculated distance
+        printf("\n\nThese are the points entered: \nPoint #1 entered: x1 = %.2lf; y1 = %.2lf \nPoint #2 entered: x2 = %.2lf; y2 = %.2lf \n",x1, y1, x2, y2);
 
-    printf("\nThe distance between the two points is: %.2lf\n", distance);
+        // calculate the distance between the two points
+
+        double x_minus = x2 - x1;             // calculates x2 minus x1
+        double y_minus = y2 - y1;             // calculates y2 minus y1
+        double x_pow2 = pow(x_minus, 2.0);    // calculates x_minus squared
+        double y_pow2 = pow(y_minus, 2.0);    // calculates y_minus squared
+        double x_plus_y = x_pow2 + y_pow2;    // calculates the sum of x_pow2 and y_pow2
+        distance = sqrt(x_plus_y);            // calculates the square root of x_plus_y
+
+        // prints the calculated distance
+
+        printf("\nThe distance between the two points is: %.2lf\n", distance);
+    } // end if
 
     return distance;
 } // calculateDistance
@@ -99,9 +110,9 @@ double calculatePerimeter()
 {
     // calculates the perimeter of the circle defined by the two points
 
-    double city_diameter = calculateDistance();
-    double city_radius = city_diameter / 2;
-    double city_perimeter = 2 * PI * city_radius;
+    double city_diameter = calculateDistance();      // gets diameter from calculateDistance() function
+    double city_radius = city_diameter / 2;          // divides city_diameter by 2
+    double city_perimeter = 2 * PI * city_radius;    // multipies city_radius by 2 and PI
 
     // prints calculated perimeter
 
@@ -129,9 +140,9 @@ double calculateArea()
 {
     // calculates the area of a cirlce defined by two points
 
-    double city_diameter = calculateDistance();
-    double city_radius = city_diameter / 2;
-    double city_area = PI * pow(city_radius, 2);
+    double city_diameter = calculateDistance();     // gets diameter from calculateDistance() function
+    double city_radius = city_diameter / 2;         // divides city_diameter by 2
+    double city_area = PI * pow(city_radius, 2);    // squares city_radius and multiplies by PI
 
     // prints calculated area
 
@@ -159,7 +170,7 @@ double calculateWidth()
 {
     // uses calculateDistance function to calculate the width between two points
 
-    double city_width = calculateDistance();
+    double city_width = calculateDistance();    // city_width is the same as the distance
 
     // prints calculated width
 
@@ -187,7 +198,7 @@ double calculateHeight()
 {
     // uses calculateDistance function to calculate the height between two points
 
-    double city_height = calculateDistance();
+    double city_height = calculateDistance();    // city_height is the same as the distance
 
     // prints calculated height
 
@@ -201,7 +212,10 @@ double calculateHeight()
 
 int main(int argc, char **argv){
 
+    // calculates the distance bewtween two points
     calculateDistance();
+
+    // uses calcualted distance to calculate perimeter, area, width, and height
     calculatePerimeter();
     calculateArea();
     calculateWidth();

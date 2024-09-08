@@ -57,11 +57,11 @@ double askForUserInput()
 
 double calculateDistance()
 {
-    static double distance = -1;    // stores static double for distance calculation
+    static double distance = -1;    // stores static double for distance calculation, used ChatGPT for concept
 
     // asks for four numbers to define two points
     
-    if (distance == -1) // so that calculateDistance() only gets calculated once
+    if (distance == -1) // so that calculateDistance() only gets calculated once, used ChatGPT for concept
     {
         // prompt for user input
 
